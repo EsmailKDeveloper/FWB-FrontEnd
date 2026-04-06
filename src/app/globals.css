@@ -1,0 +1,68 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+
+body,html{
+  direction: rtl;
+}
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@font-face {
+  font-family:SahelBold;
+  src: url(../fonts/Sahel-Black.ttf);
+}
+@font-face {
+  font-family:SahelMediume;
+  src: url(../fonts/Sahel-Bold.ttf);
+}
+@font-face {
+  font-family:Sahelnormal;
+  src: url(../fonts/Sahel.ttf);
+}
+@font-face {
+  font-family:Shabnam-Medium;
+  src: url(../fonts/Shabnam-Medium.ttf);
+}
+@font-face {
+  font-family:Shabnam-Light;
+  src: url(../fonts/Shabnam-Light.ttf);
+}
+@theme {
+  --font-SahelBold:SahelBold;
+  --font-SahelMediume:SahelMediume;
+  --font-Sahelnormal:Sahelnormal;
+  --font-Shabnam-Medium:Shabnam-Medium;
+  --font-Shabnam-Light:Shabnam-Light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+
+/* hide scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar{
+  -ms-overflow-style: none; /* IE & Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.border-custome{
+  border-bottom:1px solid rgba(163, 163, 163, 0.591);
+}
+
+
+.card_shadow{
+  box-shadow:0 0 24px rgba(0, 0, 0, 0.098);
+}
+.border_custom{
+  background-image:conic-gradient(#525fe1 80%, white 20%);
+}
