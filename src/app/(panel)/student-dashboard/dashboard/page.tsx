@@ -1,3 +1,5 @@
+'use client'
+import { useUser } from '@/context/UserContext';
 import Link from 'next/link'
 import { BsCalendarDateFill } from "react-icons/bs";
 import { BiSolidMessageAltEdit } from "react-icons/bi";
@@ -7,18 +9,19 @@ import { FaMoneyBillTransfer } from "react-icons/fa6";
 
 
 function Dashboard() {
+  const { profile } = useUser();
   return (
     <div>
         <span className='font-SahelMediume'>داشــبورد</span>
 
         <section className='w-full px-5 py-4 bg-[#04be5b] rounded font-Shabnam-Light text-white text-sm mt-7'>
-          <p>اسماعیل کیهان عزیز، به فرانت وب خوش آمدی ❤️</p>
+          <p> {profile?.first_name} {profile?.last_name} عزیز، به فرانت وب خوش آمدی ❤️</p>
         </section>
 
 
         <section className='bg-[#1CBFD0] px-5 py-4 mt-6 rounded'>
           <p className='text-sm text-white font-Sahelnormal'>
-            اسماعیل کیهان عزیز. برای مشاهده دوره‌های آموزشی که در آن ثبت نام کرده‌اید، روی دکمه زیر کلیک کنید، یا وارد منوی «دوره‌های من» شوید.
+             {profile?.first_name} {profile?.last_name} عزیز. برای مشاهده دوره‌های آموزشی که در آن ثبت نام کرده‌اید، روی دکمه زیر کلیک کنید، یا وارد منوی «دوره‌های من» شوید.
           </p>
 
           <Link href={"Our-Courses/"} 

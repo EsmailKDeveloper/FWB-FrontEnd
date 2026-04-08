@@ -1,5 +1,5 @@
 "use client"
-
+import { useUser } from "@/context/UserContext" 
 import { useEffect, useState } from "react"
 import { getCurrentUser } from "@/services/api"
 import { useRouter } from "next/navigation"
@@ -11,11 +11,8 @@ import { FaMapLocationDot } from "react-icons/fa6";
 
 
 export default function Profile() {
+  const { profile, loading  , error } = useUser();
 
-  const router = useRouter()
-  const [profile, setProfile] = useState(null)
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState("")
 
   const toPersianDate = (dateString) => {
           if (!dateString) return "---";
@@ -23,44 +20,6 @@ export default function Profile() {
           return new Intl.DateTimeFormat('fa-IR').format(date);
   }
 
-
-  useEffect(() => {
-
-    const fetchProfile = async () => {
-      try {
-        const user = await getCurrentUser()
-        console.log(user)
-        if (user.role !== "student") {
-          router.push("/login")
-          return
-        }
-
-        // گرفتن اطلاعات پروفایل شاگرد
-        const response = await fetch("http://localhost:8000/api/dashboard/student/", {
-          method: "GET",
-          credentials: "include",
-          cache: "no-store"
-        })
-
-        if (response.status === 200) {
-          const data = await response.json()
-          setProfile(data)
-        } else {
-          setError("خطا در دریافت پروفایل")
-        }
-
-      } catch (err) {
-        setError("لطفاً لاگین کنید")
-        router.push("/login")
-      } finally {
-        setLoading(false)
-      }
-
-    }
-
-    fetchProfile()
-
-  }, [])
 
   if (loading) return <p className="text-center mt-10">در حال بارگذاری...</p>
 
@@ -70,7 +29,7 @@ export default function Profile() {
 
     <div className="w-full">
       <section className="w-full">
-        <h2 className="text-2xl font-Shabnam-Medium font-bold">{profile.first_name} {profile.last_name}</h2>
+        <h2 className="text-2xl font-Shabnam-Medium font-bold">{profile?.first_name} {profile?.last_name}</h2>
         <span className="font-Sahelnormal text-sm">دشبورد </span>
          /   
         <span className="font-Sahelnormal text-sm">مشاهده پروفایل کاربری</span>
