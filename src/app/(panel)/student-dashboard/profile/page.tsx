@@ -1,4 +1,5 @@
 "use client"
+import { downloadPremiumStudentCard } from "./cardStudent"
 import { useUser } from "@/context/UserContext" 
 import { useEffect, useState } from "react"
 import { getCurrentUser } from "@/services/api"
@@ -25,11 +26,22 @@ export default function Profile() {
 
   if (error) return <p className="text-center mt-10 text-red-600">{error}</p>
 
+
+ 
+
   return (
 
     <div className="w-full">
       <section className="w-full">
-        <h2 className="text-2xl font-Shabnam-Medium font-bold">{profile?.first_name} {profile?.last_name}</h2>
+        <div className="w-full flex gap-x-3.5 items-center">
+          <h2 className="text-2xl font-Shabnam-Medium font-bold">{profile?.first_name} {profile?.last_name}</h2>
+
+          <button
+            onClick={() => downloadPremiumStudentCard(profile)}
+            className="bg-gradient-to-r from-purple-700 text-white px-4 py-2 rounded cursor-pointer font-Shabnam-Medium shadow-lg hover:scale-105 transition-transform">
+              دانلود کارت دانشجویی
+          </button>
+        </div>
         <span className="font-Sahelnormal text-sm">دشبورد </span>
          /   
         <span className="font-Sahelnormal text-sm">مشاهده پروفایل کاربری</span>

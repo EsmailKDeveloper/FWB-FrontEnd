@@ -5,7 +5,7 @@ import { BsGlobe2 } from "react-icons/bs";
 
 import Image from 'next/image'
 import React from 'react'
-import MyImg from '../../../public/contact2.png'
+
 
 function Contact() {
   return (
@@ -13,14 +13,7 @@ function Contact() {
 
 
         <figure className="w-full ">
-        <Image 
-            src={MyImg}
-            alt='عکس اسماعیل کیهان' 
-            className='object-cover w-full' 
-            priority 
-            sizes="100vw" 
-            placeholder="blur" // نمایش حالت تاری تا زمان لود کامل
-        />
+          <img src="/contact2.png" className="w-full h-screen object-cover" alt="اسماعیل کیهان" />
       </figure>
 
 
