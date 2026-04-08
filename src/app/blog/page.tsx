@@ -5,7 +5,9 @@ import React, { useEffect, useState } from 'react'
 function Blog() {
   const [blogs , setBLogs] = useState([])
   useEffect(()=>{
-    fetch('http://127.0.0.1:8000/blog/')
+    fetch('http://127.0.0.1:8000/blog/',{
+      next:{revalidate:1000}
+    })
     .then(res => res.json())
     .then(data=>{
       setBLogs(data)
@@ -30,7 +32,7 @@ function Blog() {
           />
         </div>
         <div className="p-4">
-          <h2 className="text-md font-bold text-gray-800 line-clamp-1 font-SahelMediume">{item.title}</h2>
+          <h2 className="text-md font-bold text-gray-800 line-clamp-2 font-SahelMediume">{item.title}</h2>
           <section className="mt-3 flex items-center justify-between border-t pt-2 font-Shabnam-Light">
             <span className='text-xs text-gray-500 '>نویسنده:</span>
             <strong className='text-xs font-medium text-blue-600'>{item.author_name}</strong>

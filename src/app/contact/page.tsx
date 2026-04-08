@@ -123,7 +123,7 @@ function SendData(){
                    className='w-[70%] h-full rounded-sm bg-[#f2f2f2] pr-4  outline-blue-200'
                  placeholder=" ایمیل* "  />
           </div>
-          <button className='w-full h-12 rounded-sm bg-[#525fe1] text-white font-Shabnam-Medium cursor-pointer duration-200 hover:bg-[#231F40] '>ارسال پیام </button>
+          <button disabled className='w-full h-12 rounded-sm bg-[#525fe1] text-white font-Shabnam-Medium cursor-pointer duration-200 hover:bg-[#231F40] '>ارسال پیام </button>
         </form>
       </div>
     </section>

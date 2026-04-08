@@ -1,12 +1,22 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 function Convirtions_components() {
-    const [isVisible, setIsVisible] = useState(true);
+    const [isVisible, setIsVisible] = useState(false); // 👈 اول false
     const [message, setMessage] = useState('');
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [fullname, setFullname] = useState('');
     const [phone, setPhone] = useState('');
+
+    // 👇 این مهم‌ترین بخش است
+    useEffect(() => {
+        const hasSeen = sessionStorage.getItem("consultation_shown");
+
+        if (!hasSeen) {
+            setIsVisible(true);
+            sessionStorage.setItem("consultation_shown", "true");
+        }
+    }, []);
 
     const handleRemove = () => {
         setIsVisible(false);
@@ -24,14 +34,14 @@ function Convirtions_components() {
             });
 
             if (response.ok) {
-                setMessage('✅ درخواست شما با موفقیت ثبت شد. به زودی با شما تماس می‌گیریم.');
+                setMessage('✅ درخواست شما با موفقیت ثبت شد');
                 setIsSubmitted(true); 
                 setTimeout(() => setIsVisible(false), 3000);
             } else {
-                setMessage('❌ ثبت درخواست انجام نشد. دوباره تلاش کنید.');
+                setMessage('❌ خطا در ثبت');
             }
         } catch (error) {
-            setMessage('❌ خطا در اتصال به سرور');
+            setMessage('❌ خطا در اتصال');
         }
     }
 

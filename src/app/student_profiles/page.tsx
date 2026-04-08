@@ -1,5 +1,4 @@
 'use client'
-// import { error } from 'console' // این خط را حذف کنید، نیازی نیست
 import Link from 'next/link'
 import React, { useState, useEffect } from 'react'
 
@@ -8,7 +7,9 @@ function StudentProfile() {
   const [loading, setLoading] = useState(true) // 1. اضافه کردن استیت لودینگ
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/dashboard/studentprofiles/')
+    fetch('http://127.0.0.1:8000/api/dashboard/studentprofiles/',{
+      next:{revalidate:1000}
+    })
       .then(res => res.json())
       .then(data => {
         setStudentData(data)
