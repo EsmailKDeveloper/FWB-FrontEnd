@@ -1,6 +1,7 @@
 'use client'
 import Link from 'next/link'
 import React, { useState, useEffect } from 'react'
+import Loading_component from '@/components/loading_component'
 
 function StudentProfile() {
   const [studentData, setStudentData] = useState([])
@@ -21,14 +22,11 @@ function StudentProfile() {
       })
   }, []) // آرایه خالی یعنی فقط یک‌بار اجرا شود
 
+  
   // 3. نمایش پیام لودینگ
-  if (loading) {
-    return (
-      <div className='w-full min-h-screen flex justify-center items-center'>
-        <p className='font-Shabnam-Medium text-xl'>در حال لود کردن...</p>
-      </div>
-    )
-  }
+  if(loading) return(
+    <Loading_component />
+  )
 
   const toPersianDate = (dateString) => {
           if (!dateString) return "---";

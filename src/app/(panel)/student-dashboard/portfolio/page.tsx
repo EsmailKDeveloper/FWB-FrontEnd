@@ -1,5 +1,5 @@
 'use client'
-
+import toast from 'react-hot-toast'
 import { useState } from "react"
 
 
@@ -46,12 +46,13 @@ function Protfolio() {
 
       if (response.ok) {
         const result = await response.json();
-        alert('نمونه کار با موفقیت ذخیره شد!');
+        toast.success('نمونه کار با موفقیت ثبت شد!')
         console.log(result);
       } else {
         const errorData = await response.json();
         console.error('خطای سرور:', errorData);
         alert('خطایی در ذخیره‌سازی رخ داد.');
+        toast.error('خطایی در ذخیره سازی رخ داد')
       }
     } catch (error) {
       console.error('Error sending data:', error);

@@ -2,7 +2,7 @@ import React from 'react'
 
 function Accordin_info_course() {
   return (
-    <section className='w-full lg:w-[80%] mx-auto py-4 px-10 lg:px-0'>
+    <section className='w-full lg:w-[85%] mx-auto py-4 px-10 lg:px-0'>
         <h2 className='font-Shabnam-Medium font-bold text-center text-2xl my-6'>چرا فرانت وب؟</h2>
 
         {/* _Accordion__1__ */}

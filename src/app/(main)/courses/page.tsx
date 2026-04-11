@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import React from 'react'
 
+
 async function Courses() {
     let res = await fetch('http://127.0.0.1:8000/api/courses/',{
         next:{revalidate:1000}
@@ -9,6 +10,8 @@ async function Courses() {
         throw new Error('دیتا یافت نشد')
     }
     let course = await res.json()
+
+  
   return (
     <div className='w-full min-h-screen '>
         <section className='container mx-auto lg:w-[85%] py-10 px-10 md:px-0'>

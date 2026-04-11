@@ -3,7 +3,7 @@ import React from 'react'
 function NotePayments() {
   return (
     <div>
-        <h2>دفترچه باقیات</h2>
+        <h2 className='font-Shabnam-Medium'>دفترچه باقیات این صفحه در حال توسعه می باشد</h2>
     </div>
   )
 }

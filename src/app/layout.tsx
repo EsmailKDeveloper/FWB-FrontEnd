@@ -1,8 +1,6 @@
-
+import { Toaster } from 'react-hot-toast';
 import type { Metadata } from "next";
 import "./globals.css";
-
-
 
 
 export const metadata: Metadata = {
@@ -22,6 +20,7 @@ export default function RootLayout({
       <body>
          {/* {!shouldHideNavbar && <Navbar />} */}
         <main>
+            <Toaster position="top-left" reverseOrder={false} />
             {children}
         </main>
       </body>

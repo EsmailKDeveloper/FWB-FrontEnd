@@ -53,10 +53,10 @@ async function DetailProfileStudent({ params }: { params: Promise<{ id: string }
 
   return (
     <div className='w-full min-h-screen'>
-       <img src="/banner.png" className='h-[470px] w-full object-cover object-center' alt="cover photo" />
+       <img src="/banner.png" className='h-[470px] w-full object-cover object-center ' alt="cover photo" />
        <div className="container mx-auto">
             <article className='w-full lg:w-[85%] mx-auto py-10 px-7 md:px-0'>
-                <img src={student.photo} className="w-32 h-32 rounded-full -mt-26" alt={student.first_name} />
+                <img src={student.photo} className="w-32 h-32 rounded-full object-cover object-top -mt-26 border-2 border-white outline-4 outline-white outline-offset-2 card_shadow" alt={student.first_name} />
                 <h2 className="text-2xl mt-4 font-Shabnam-Medium">{student.first_name} {student.last_name}</h2>
                 <p className="text-gray-600 mt-2 font-Shabnam-Light">دانشجور دوره: {student.term}</p>
                 <div className="mt-6pt-4 font-Shabnam-Light">
